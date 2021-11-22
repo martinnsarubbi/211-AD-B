@@ -10,7 +10,7 @@ export const crearReclamo = async (req, res) => {
     }
 
     let estado = 'nuevo reclamo'
-    console.log("llegue")
+
     try {
         const pool = await getConnection();
         const result = await pool
@@ -30,6 +30,7 @@ export const crearReclamo = async (req, res) => {
           .input("imagen6", sql.VarChar, imagen6)
           .input("imagen7", sql.VarChar, imagen7)
           .query(querys.crearReclamo);
+          console.log(result)
           res.send(result.recordset[0])
 
       } catch (error) {
