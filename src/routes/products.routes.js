@@ -23,7 +23,11 @@ import {
   crearDenuncia,
   obtenerDenunciasRealizadas,
   obtenerDenunciasOtroVecino
- } from "../controllers/denuncias.controller.js"
+ } from "../controllers/denuncias.controller.js";
+
+ import { obtenerRubros } from "../controllers/rubros.controller";
+
+ import { obtenerUbicaciones } from "../controllers/ubicaciones.controller";
 
 const router = Router();
 
@@ -47,5 +51,7 @@ router.get("/promocion", obtenerPromocionesActivas);
 router.post("/denuncia", crearDenuncia);
 router.get("/denuncia/:documento", obtenerDenunciasRealizadas);
 router.get("/denuncia/generadasPorOtroVecino/:documento", obtenerDenunciasOtroVecino);
+router.get("/rubros", obtenerRubros);
+router.get("/ubicaciones", obtenerUbicaciones);
 
 export default router;
