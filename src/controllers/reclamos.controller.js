@@ -30,7 +30,6 @@ export const crearReclamo = async (req, res) => {
           .input("imagen6", sql.VarChar, imagen6)
           .input("imagen7", sql.VarChar, imagen7)
           .query(querys.crearReclamo);
-          console.log(result)
           res.send(result.recordset[0])
 
       } catch (error) {
