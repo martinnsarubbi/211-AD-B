@@ -29,6 +29,8 @@ import {
 
  import { obtenerUbicaciones } from "../controllers/ubicaciones.controller";
 
+ import { crearReclamo, obtenerReclamos } from "../controllers/reclamos.controller";
+
 const router = Router();
 
 router.get("/products", getProducts);
@@ -53,5 +55,7 @@ router.get("/denuncia/:documento", obtenerDenunciasRealizadas);
 router.get("/denuncia/generadasPorOtroVecino/:documento", obtenerDenunciasOtroVecino);
 router.get("/rubros", obtenerRubros);
 router.get("/ubicaciones", obtenerUbicaciones);
+router.post("/reclamo/", crearReclamo);
+router.get("/reclamo/:documento", obtenerReclamos);
 
 export default router;

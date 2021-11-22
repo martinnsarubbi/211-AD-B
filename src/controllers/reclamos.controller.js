@@ -1,34 +1,58 @@
 import { getConnection, querys, sql } from "../database";
 
 export const crearReclamo = async (req, res) => {
-    const { documento, denunciadoNombre, denunciadoApellido, comercioDenunciado, denunciadoDireccion,
-        denunciadoDocumento, aceptaResponsabilidad, descripcion, idSitio } = req.body;
+    const { documento, idDesperfecto, idSitio, idReclamoUnificado,
+      lugarReclamo, imagen1, descripcion, imagen2, imagen3,
+      imagen4, imagen5, imagen6, imagen7 } = req.body;
     // validating
     if (documento == null) {
       return res.status(400).json({ msg: "Bad Request. Por favor llenar todos los campos." });
     }
 
-    let estado = 'nueva denuncia'
-
+    let estado = 'nuevo reclamo'
+    console.log("llegue")
     try {
         const pool = await getConnection();
         const result = await pool
           .request()
           .input("documento", sql.VarChar, documento)
           .input("idSitio", sql.Int, idSitio)
-          .input("descripcion", sql.VarChar, descripcion)
+          .input("idDesperfecto", sql.Int, idDesperfecto)
           .input("estado", sql.VarChar, estado)
-          .input("aceptaResponsabilidad", sql.Int, aceptaResponsabilidad)
-          .input("denunciadoNombre", sql.VarChar, denunciadoNombre)
-          .input("denunciadoApellido", sql.VarChar, denunciadoApellido)
-          .input("comercioDenunciado", sql.VarChar, comercioDenunciado)
-          .input("denunciadoDireccion", sql.VarChar, denunciadoDireccion)
-          .input("denunciadoDocumento", sql.Int, denunciadoDocumento)
-          .query(querys.crearDenuncia);
+          .input("descripcion", sql.VarChar, descripcion)
+          .input("idReclamoUnificado", sql.Int, idReclamoUnificado)
+          .input("lugarReclamo", sql.VarChar, lugarReclamo)
+          .input("imagen1", sql.VarChar, imagen1)
+          .input("imagen2", sql.VarChar, imagen2)
+          .input("imagen3", sql.VarChar, imagen3)
+          .input("imagen4", sql.VarChar, imagen4)
+          .input("imagen5", sql.VarChar, imagen5)
+          .input("imagen6", sql.VarChar, imagen6)
+          .input("imagen7", sql.VarChar, imagen7)
+          .query(querys.crearReclamo);
           res.send(result.recordset[0])
 
       } catch (error) {
         res.status(500);
         res.send(error.message);
       }
+}
+
+
+export const obtenerReclamos = async (req, res) => {
+    
+  const { documento } = req.params.documento;
+
+  try {
+      const pool = await getConnection();
+      const result = await pool
+        .request()
+        .input("documento", sql.VarChar, documento)
+        .query(querys.obtenerReclamos);
+        res.send(result);
+    } catch (error) {
+      res.status(500);
+      res.send(error.message);
+    }
+
 }
