@@ -1,6 +1,7 @@
 import { getConnection, querys, sql } from "../database";
 
 export const crearDenuncia = async (req, res) => {
+  console.log("ACA LLEGO BOLUDO")
     const { documento, denunciadoNombre, denunciadoApellido, comercioDenunciado, denunciadoDireccion,
         denunciadoDocumento, aceptaResponsabilidad, descripcion, idSitio } = req.body;
     // validating

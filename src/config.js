@@ -3,8 +3,8 @@ config();
 
 export default {
   port: process.env.PORT || 3000,
-  dbUser: 'dist',
-  dbPassword: 'uadeuadeuadeuade88',
+  dbUser: 'SA',
+  dbPassword: 'Sonokjoght2.',
   dbServer: 'localhost',
   dbDatabase: 'distribuidas',
 };

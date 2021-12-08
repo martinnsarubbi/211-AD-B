@@ -11,5 +11,7 @@ export const querys = {
   crearReclamo:"INSERT INTO reclamos (documento, idSitio, idDesperfecto, descripcion, estado, idReclamoUnificado) VALUES (@documento, @idSitio, @idDesperfecto, @descripcion, @estado, @idReclamoUnificado); INSERT INTO distribuidas.dbo.detalleReclamos (lugarReclamo, imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, imagen7, idReclamo) VALUES (@lugarReclamo, @imagen1, @imagen2, @imagen3, @imagen4, @imagen5, @imagen6, @imagen7, (SELECT MAX(distribuidas.dbo.reclamos.idReclamo) FROM distribuidas.dbo.reclamos)); (SELECT MAX(distribuidas.dbo.reclamos.idReclamo) as idReclamo FROM distribuidas.dbo.reclamos)",
   obtenerReclamos:"SELECT * FROM reclamos LEFT JOIN detalleReclamos on reclamos.idReclamo = detalleReclamos.idReclamo WHERE reclamos.documento = @documento",
   obtenerUbicaciones:"SELECT * FROM barrios",
-  obtenerRubros:"SELECT * FROM rubros"
+  obtenerRubros:"SELECT * FROM rubros",
+  /* Los que cree yo */
+  crearDesperfecto : "INSERT INTO desperfectos (descripcion, idRubro) VALUES (@descripcion, @idRubro)"
 };

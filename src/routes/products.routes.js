@@ -31,6 +31,8 @@ import {
 
  import { crearReclamo, obtenerReclamos } from "../controllers/reclamos.controller";
 
+import { createNuevoDesperfecto } from "../controllers/desperfectos.controller";
+
 const router = Router();
 
 router.get("/products", getProducts);
@@ -57,5 +59,10 @@ router.get("/rubros", obtenerRubros);
 router.get("/ubicaciones", obtenerUbicaciones);
 router.post("/reclamo/", crearReclamo);
 router.get("/reclamo/:documento", obtenerReclamos);
+
+
+//Los que agregue yo
+
+router.post("/desperfecto", createNuevoDesperfecto);
 
 export default router;

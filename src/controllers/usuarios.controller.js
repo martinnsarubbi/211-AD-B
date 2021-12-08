@@ -78,11 +78,11 @@ export const registroUsuario = async (req, res) => {
 
 export const login = async (req, res) => {
   const { documento, password } = req.body;
+
   // validating
   if (documento == null || password == null) {
     return res.status(400).json({ msg: "Por favor llenar todos los campos." });
   }
-
   try {
     const pool = await getConnection();
     const result = await pool
