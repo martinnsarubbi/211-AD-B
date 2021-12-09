@@ -13,5 +13,6 @@ export const querys = {
   obtenerUbicaciones:"SELECT * FROM barrios",
   obtenerRubros:"SELECT * FROM rubros",
   /* Los que cree yo */
-  crearDesperfecto : "INSERT INTO desperfectos (descripcion, idRubro) VALUES (@descripcion, @idRubro)"
+  obtenerDesperfectos : "SELECT * FROM desperfectos WHERE idRubro = @idRubro",
+  obetenerSitios : "SELECT * FROM sitios"
 };

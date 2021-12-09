@@ -31,7 +31,9 @@ import {
 
  import { crearReclamo, obtenerReclamos } from "../controllers/reclamos.controller";
 
-import { createNuevoDesperfecto } from "../controllers/desperfectos.controller";
+import { obtenerDesperfectos } from "../controllers/desperfectos.controller";
+
+import { obetenerSitios } from "../controllers/sitios.controller";
 
 const router = Router();
 
@@ -63,6 +65,6 @@ router.get("/reclamo/:documento", obtenerReclamos);
 
 //Los que agregue yo
 
-router.post("/desperfecto", createNuevoDesperfecto);
-
+router.get("/desperfecto/:idRubro", obtenerDesperfectos);
+router.get("/sitios", obetenerSitios)
 export default router;
