@@ -10,7 +10,8 @@ export const crearDenuncia = async (req, res) => {
     denunciadoDocumento, 
     aceptaResponsabilidad, 
     descripcion, 
-    idSitio 
+    idSitio,
+    imagen1
   } = req.body;
   // validating
   if (documento == null) {
@@ -34,6 +35,7 @@ export const crearDenuncia = async (req, res) => {
       .input("comercioDenunciado", sql.VarChar, comercioDenunciado)
       .input("denunciadoDireccion", sql.VarChar, denunciadoDireccion)
       .input("denunciadoDocumento", sql.Int, denunciadoDocumento)
+      .input("imagen1", sql.VarChar, imagen1)
       .query(querys.crearDenuncia);
     res.send(result.recordset[0])
 
